@@ -1,0 +1,3 @@
+1593182553554	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/hy/6jkjymyd7vs8b_6_c3kdqh5h0000gn/T/rust_mozprofiledMKa5D"
+1593182558005	Marionette	INFO	Listening on port 55589
+1593182558075	Marionette	WARN	TLS certificate errors will be ignored for this session
