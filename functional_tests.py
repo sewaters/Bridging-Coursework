@@ -14,7 +14,7 @@ class NewVisitorTest(unittest.TestCase):
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Edith has heard about a cool personal website. She goes
         # to check out its homepage
-        self.browser.get('http://localhost:8000')
+        self.browser.get('http://localhost:8000/CV')
 
         # She notices the page title and header mention to-do lists
         self.assertIn('Sara', self.browser.title)
