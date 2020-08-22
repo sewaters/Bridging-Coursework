@@ -13,7 +13,10 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    if post.title == '2019/20 Study Highlights':
+        return render(request, 'blog/post_studHigh.html', {'post': post})
+    else:
+        return render(request, 'blog/post_detail.html', {'post': post})
 
 def post_new(request):
     if request.method == "POST":

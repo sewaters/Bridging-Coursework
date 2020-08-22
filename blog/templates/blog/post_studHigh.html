@@ -1,0 +1,39 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="post">
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        <h2>{{ post.title }}</h2>
+        <p>
+            During my second year of studying BSc Computer Science, I studied a range of different modules some of
+            which to further my knowledge I had developed in first year and others to allow me to learn about areas
+            I had not yet looked into. In my first Semester I studied the modules; Systems Programming in C and C++,
+            Software Engineering and Advanced Functional Programming. Then in my second semester I studied; Security
+            and Networks, Mathematical Modelling and Decision Making and finally Team Project. My favourite module to
+            study was Security and Networks, however I developed many different team working skills through the
+            coursework I completed in software engineering and team project which are highly valuable to me when I
+            graduate from my degree.
+            <img src="{% static 'images/soft_eng.png' %}" alt="Software Engineering Diagram">
+        </p>
+        <h4>Software Engineering</h4>
+        <p>
+            During my first semester I completed group coursework as a group of 7 in the module ‘Software Engineering’
+            which was my first large team project. As a team we created and designed our own app to help improve the
+            wellbeing of student aged adults. As we were learning the different stages and diagrams in a creation stage
+            of a piece of software the coursework allowed us to put this into practice applying it for our own design.
+            This really helped me consolidate the learning process by seeing real life examples that I had to work
+            through myself. As I was part of a team, we developed our time management skills as well as the ability to
+            divide up tasks and work in smaller groups too. As a team we had at least one weekly meeting as a whole
+            group and smaller meetings throughout the week. We kept a weekly plan to make sure all tasks were being
+            completed and everyone knew their role.
+        </p>
+    </div>
+{% endblock %}
