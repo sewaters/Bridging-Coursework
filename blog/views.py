@@ -15,6 +15,10 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if post.title == '2019/20 Study Highlights':
         return render(request, 'blog/post_studHigh.html', {'post': post})
+    elif post.title == 'My Ambitions for the next Academic Year':
+        return render(request, 'blog/post_nextYear.html', {'post': post})
+    elif post.title == 'The Structure of my Site and Django Review':
+        return render(request, 'blog/post_site&Django.html', {'post': post})
     else:
         return render(request, 'blog/post_detail.html', {'post': post})
 

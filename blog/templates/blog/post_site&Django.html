@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="post" >
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        <h2>{{ post.title }}</h2>
+        <p>
+            ***My Site***
+        </p>
+        <br>
+        <h4>What Django is</h4>
+        <p>
+
+        </p>
+        <br>
+        <h4>How I have used Django</h4>
+        <p>
+
+        </p>
+    </div>
+{% endblock %}

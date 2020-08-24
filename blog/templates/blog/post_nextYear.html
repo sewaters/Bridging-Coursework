@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="post" >
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        <h2>{{ post.title }}</h2>
+        <p>
+            I am currently studying BSc Computer Science with Industry Placement at University of Birmingham. I have
+            completed my second year of study this Summer 2020 and will be going on my industrial placement this next
+            academic year. I am going to be working at the Defence Science and Technology Labratory (DSTL) for 50 weeks.
+            I am excited to be part of real world projects, applying knowledge I have learnt to provide solutions, as
+            well as developing my knowledge and skills. I look forward to seeing the knowledge I have learnt at
+            university put into practice in large scale methods providing solutions to tasks that affect real world
+            situations
+        </p>
+        <br>
+        <h4>Adding Knowledge</h4>
+        <p>
+            I look forward to using the development language python in more detail, both in mathematical algorithms and
+            on front-end software. Most of my time at University I wrote in Java and previously C#, I have used python
+            on occasions but having the chance to learn more will be great. It will be a great chance for me to learn
+            more data analyst skills, such as machine learning algorithms and to practice using them on real world
+            data to find useful solutions and knowledge about the data.
+        </p>
+        <br>
+        <h4>Developing Skills</h4>
+        <p>
+            I am excited to develop skills I have been working on this year. I will be working in teams for my projects,
+            allowing me to develop further my team working skills I have been learning this year. As I am starting my
+            placement virtually, I will be able to develop my skills using applications such as GitHub to work closely
+            with other colleagues work and greatly improve communication skills as I will have to be vigilant with not
+            being in the same office.
+        </p>
+    </div>
+{% endblock %}

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-    <div class="post">
+    <div class="post" >
         {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
@@ -21,8 +21,8 @@
             study was Security and Networks, however I developed many different team working skills through the
             coursework I completed in software engineering and team project which are highly valuable to me when I
             graduate from my degree.
-            <img src="{% static 'images/soft_eng.png' %}" alt="Software Engineering Diagram">
         </p>
+        <img src="{% static 'images/soft_eng.png' %}" alt="Software Engineering Diagram" >
         <h4>Software Engineering</h4>
         <p>
             During my first semester I completed group coursework as a group of 7 in the module ‘Software Engineering’
@@ -34,6 +34,29 @@
             divide up tasks and work in smaller groups too. As a team we had at least one weekly meeting as a whole
             group and smaller meetings throughout the week. We kept a weekly plan to make sure all tasks were being
             completed and everyone knew their role.
+        </p>
+        <br>
+        <h4>Team Project</h4>
+        <p>
+            These skills were highly useful when it came to my team project group coursework in second semester. As a
+            group of 6 we designed and created a 2D top-down car racing game. We included many elements such as;
+            multi-player across different laptops, networking, database, graphics, audio and physics. As the game
+            was very integrated we had to make sure we knew what each other was doing and how our parts fitted in.
+            Due to Covid-19 we also finished the team project remotely, audio calling and using GitHub to piece the work
+            together for the final product. It was a great opportunity to work closely on code linked to others work and
+            develop my java skills to the next level in a varied way.
+        </p>
+        <br>
+        <img src="{% static 'images/TP Screenshot.png' %}" alt="Software Engineering Diagram" width="851" height="481">
+        <br>
+
+        <h4>Security and Networks</h4>
+        <p>
+            I had not studied this area before this year. I had the opportunity to learn about websites, file access
+            and cryptography. Learning both how to protect technology and how some would take advantage of technology
+            showed how in all aspects of development of any software it needs to be thought about. I found these topics
+            very interesting and some of the methods very clever. I could see how this topic affects every day lives
+            of all people and how integrated it has to be.
         </p>
     </div>
 {% endblock %}
