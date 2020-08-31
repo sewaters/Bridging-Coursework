@@ -1,8 +1,7 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from django.test import LiveServerTestCase
-import time
 import unittest
+from django.test import LiveServerTestCase
+from selenium import webdriver
+
 
 class NewVisitorTest(LiveServerTestCase):
 
@@ -12,45 +11,33 @@ class NewVisitorTest(LiveServerTestCase):
     def tearDown(self):
         self.browser.quit()
 
-    def test_can_start_a_list_and_retrieve_it_later(self):
-        # Edith has heard about a cool personal website. She goes
+    def test_can_read_through_cv_page(self):
+        # Emma has heard about a cool personal website. She goes
         # to check out its homepage
         self.browser.get(self.live_server_url)
 
-        # She notices the page title and header mention to-do lists
+        # She notices the page title says her name and header mention a CV
         self.assertIn('Sara', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
         self.assertIn('Sara', header_text)
+        nav_text = self.browser.find_element_by_id("CV").text
+        self.assertIn('CV', nav_text)
+        self.browser.find_element_by_id("CV").click()
 
-        # She is invited to enter a to-do item straight away
-        inputbox = self.browser.find_element_by_id('id_new_item')
-        self.assertEqual(
-            inputbox.get_attribute('placeholder'),
-            'Enter a to-do item'
-        )
+        self.browser.get("http://127.0.0.1:8000/CV/")
+        # She reads through each section of text on the page
+        title_text = self.browser.find_element_by_id("Title").text
+        self.assertIn('CV', title_text)
+        text = self.browser.find_element_by_id('CV Texts')
+        self.assertIsNotNone(text)
 
-        # She types "Buy peacock feathers" into a text box (Edith's hobby
-        # is tying fly-fishing lures)
-        inputbox.send_keys('Buy peacock feathers')
+        #She notices there are links to Sara's accounts on linked In and GitHub and tries them
+        actual_url = self.browser.find_element_by_id('LinkedIn').get_attribute('href')
+        self.assertEqual(actual_url, 'https://www.linkedin.com/in/sara-waters-856393173/')
+        actual_url = self.browser.find_element_by_id('GitHub').get_attribute('href')
+        self.assertEqual(actual_url, 'https://github.com/sewaters')
 
-        # When she hits enter, the page updates, and now the page lists
-        # "1: Buy peacock feathers" as an item in a to-do list table
-        inputbox.send_keys(Keys.ENTER)
-        time.sleep(1)
 
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(
-            any(row.text == '1: Buy peacock feathers' for row in rows)
-        )
-
-        # There is still a text box inviting her to add another item. She
-        # enters "Use peacock feathers to make a fly" (Edith is very
-        # methodical)
-        self.fail('Finish the test!')
-
-        # The page updates again, and now shows both items on her list
-        [...]
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')

@@ -1,4 +1,23 @@
 {% extends 'blog/base.html' %}
+{% load static %}
 
 {% block content %}
+    <div class="CV_page" >
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        <h2 id="Title">{{ post.title }}</h2>
+        <p id="CV Texts">{{ post.text|linebreaksbr }}</p>
+        <a id="LinkedIn" href="https://www.linkedin.com/in/sara-waters-856393173/">
+            <img src="{% static 'images/LI-Logo.png' %}" alt="Linked In" width="276" height="67">
+        </a>
+        <a id="GitHub" href="https://github.com/sewaters">
+            <img src="{% static 'images/GitHub_Logo.png' %}" alt="GitHub" width="250" height="105">
+        </a>
+    </div>
 {% endblock %}

@@ -8,7 +8,7 @@ def home_page(request):
     return render(request, 'blog/home_page.html')
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).exclude(title='CV').order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
@@ -50,4 +50,9 @@ def post_edit(request, pk):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 def CV_page(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    for p in posts:
+        if p.title == 'CV':
+            return render(request, 'blog/CV_page.html', {'post': p})
+
     return render(request, 'blog/CV_page.html')

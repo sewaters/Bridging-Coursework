@@ -12,18 +12,37 @@
             <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
         <h2>{{ post.title }}</h2>
+        <h4>My Site Structure</h4>
         <p>
-            ***My Site***
+            I have created my site using a combination of python, html and css files. My website uses a database to hold the various
+            blog posts, which I then present using html files based on a base html file giving the general layout of each page on
+            the website. Each page is linked through click buttons to other URLs within the website going through the urls python
+            file and the views python file which calls the respective html file to display the correct information.
         </p>
         <br>
         <h4>What Django is</h4>
         <p>
-
+            Django is a popular website framework. It provides a range of files using python that give the user a starting
+            application which they can use to develop their own web application.  Instead of writing a web application from scratch,
+            django can provide python code, a database, admin features, html templates and forms which the user can use to speed
+            up the delivery of the website. Django also provide tutorials and documentation ont heir website to either teach web
+            developing skills from scratch or help users when they come across errors/struggles. It keeps an application simple by
+            making it easy to reuse code. Lots of packages are also provided, so you do not need to install them all separately.
         </p>
         <br>
         <h4>How I have used Django</h4>
         <p>
-
+            I have used django as a starting base to build my code upon to develop my own website. Django initially created
+            settings, models, forms, url files and a database, so the website can be loaded straight away. I could then build on the
+            url files to create my own pages on the website. using their base html file idea to create the standard layout for
+            each page. Using the database that django provide with their blog packages, I used this to hold the information for my
+            blog posts which I linked together developing the views and url python files provided. Django also provided an admin
+            authentication page which I used to set up my own admin accounts to then allow admins to edit blog posts and create new
+            blog posts straight from the website pages. Through further research and practice I developed the css files, in addition
+            to adding images and links to personalise the website I was creating. Django also provided a unit testing file in the blo
+            package which I used alongside the function tests package I created to apply TDD in cresting my CV page on my website.
+            The django manage python file allowed me to esily run my tests, with debug lines provded to help me efficiently build my
+            CV page.
         </p>
     </div>
 {% endblock %}

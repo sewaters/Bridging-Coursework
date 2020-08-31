@@ -1,4 +1,15 @@
 {% extends 'blog/base.html' %}
+{% load static %}
 
 {% block content %}
+<div >
+    <img src="{% static 'images/uoB.png' %}" alt="UoB" width="504" height="672">
+    <p> University of Birmingham 2020</p>
+    <img src="{% static 'images/Robot.png' %}" alt="Robot" class="center">
+    <p> University of Birmingham, Robotics 2019</p>
+    <img src="{% static 'images/Carols_Mixing.png' %}" alt="Carols Mixing width="504" height="672" class="center">
+    <p> University of Birmingham Carol Service 2019, Head of Audio and Lighting</p>
+    <img src="{% static 'images/Car_Game.png' %}" alt="Car Game" width="742" height="449" class="center">
+    <p> University of Birmingham, Team Project 2020; 2D Top Down Racing Game</p>
+</div>
 {% endblock %}
